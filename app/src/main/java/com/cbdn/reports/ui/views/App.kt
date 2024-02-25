@@ -56,6 +56,7 @@ fun App(
                 canNavigateBack = navController.previousBackStackEntry != null,
                 navigateUp = {
                     if (currentScreen.name == Destinations.AppMenu.name){
+                        appViewModel.setRespondingTruck("")
                         navController.popBackStack()
                     } else {
                         navController.popBackStack(
@@ -73,7 +74,8 @@ fun App(
                     if (!uiState.submitSuccessful) {
                         if (reportState.finalized) {
                             Dialog(onDismissRequest = {
-                                appViewModel.resetUI()
+//                                appViewModel.resetUI()
+                                appViewModel.resetUiMinusTruck()
                             }) {
                                 Column(
                                     modifier = Modifier
@@ -88,14 +90,16 @@ fun App(
                                     Row {
                                         FormButton(
                                             onClick = {
-                                                appViewModel.resetUI()
+//                                                appViewModel.resetUI()
+                                                appViewModel.resetUiMinusTruck()
                                             },
                                             labelResource = R.string.discard
                                         )
                                         FormButton(
                                             onClick = {
                                                 appViewModel.submitReport()
-                                                appViewModel.resetUI()
+//                                                appViewModel.resetUI()
+                                                appViewModel.resetUiMinusTruck()
                                             },
                                             labelResource = R.string.submit
                                         )
@@ -104,7 +108,8 @@ fun App(
                             }
                         } else {
                             Dialog(onDismissRequest = {
-                                appViewModel.resetUI()
+//                                appViewModel.resetUI()
+                                appViewModel.resetUiMinusTruck()
                             }) {
                                 Column(
                                     modifier = Modifier
@@ -119,14 +124,16 @@ fun App(
                                     Row {
                                         FormButton(
                                             onClick = {
-                                                appViewModel.resetUI()
+//                                                appViewModel.resetUI()
+                                                appViewModel.resetUiMinusTruck()
                                             },
                                             labelResource = R.string.discard
                                         )
                                         FormButton(
                                             onClick = {
                                                 appViewModel.submitReport()
-                                                appViewModel.resetUI()
+//                                                appViewModel.resetUI()
+                                                appViewModel.resetUiMinusTruck()
                                             },
                                             labelResource = R.string.save_as_incomplete
                                         )
@@ -136,7 +143,8 @@ fun App(
                         }
                     } else {
                         Dialog(onDismissRequest = {
-                            appViewModel.resetUI()
+//                            appViewModel.resetUI()
+                            appViewModel.resetUiMinusTruck()
                         }) {
                             Column(
                                 modifier = Modifier
@@ -150,7 +158,8 @@ fun App(
                                 Text(stringResource(id = R.string.submit_successful_message))
                                 FormButton(
                                     onClick = {
-                                        appViewModel.resetUI()
+//                                        appViewModel.resetUI()
+                                        appViewModel.resetUiMinusTruck()
                                     },
                                     labelResource = R.string.ok
                                 )
