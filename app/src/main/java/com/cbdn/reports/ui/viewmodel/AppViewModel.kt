@@ -69,6 +69,11 @@ class AppViewModel(
         _uiState.update { AppUiState() }
         _reportState.update { Report() }
     }
+    fun resetUiMinusTruck() {
+        val curTruck = _reportState.value.respondingTruck
+        _uiState.update { AppUiState() }
+        _reportState.update { Report(respondingTruck = curTruck)}
+    }
     fun clearPulledReports() {
         _uiState.update {
             it.copy(pulledReports = null)
