@@ -1,5 +1,13 @@
+// NavController Extension Function NavController.isOnBackStack() adapted for use in
+// application navigation tree taken from Stack Overflow answer
+// https://stackoverflow.com/questions/65529172/check-if-a-navigation-graph-is-on-the-backstack
+// inputs modified for use with route strings
+// by Peter Judge on 2/26/2024
+
 package com.cbdn.reports.ui.views
 
+import androidx.annotation.IdRes
+import androidx.annotation.NonNull
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -7,6 +15,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.ArrowBack
+import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.Done
 import androidx.compose.material.icons.rounded.Menu
 import androidx.compose.material.icons.rounded.Warning
@@ -27,6 +37,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -36,6 +47,7 @@ import com.cbdn.reports.ui.navigation.Destinations
 import com.cbdn.reports.ui.viewmodel.AppViewModel
 import com.cbdn.reports.ui.views.composables.FormButton
 import com.cbdn.reports.ui.views.composables.DialogHeader
+import com.cbdn.reports.ui.views.trucklandingpage.TruckLandingPage
 
 
 @Composable
@@ -55,8 +67,14 @@ fun App(
                 currentScreen = currentScreen,
                 canNavigateBack = navController.previousBackStackEntry != null,
                 navigateUp = {
-                    if (currentScreen.name == Destinations.AppMenu.name){
+                    if (currentScreen.name == Destinations.TruckLandingPage.name){
                         appViewModel.setRespondingTruck("")
+                        navController.popBackStack()
+
+                    } else if (
+                        !navController.isOnBackStack(Destinations.AppMenu.name) ||
+                        currentScreen.name == Destinations.AppMenu.name
+                    ) {
                         navController.popBackStack()
                     } else {
                         navController.popBackStack(
@@ -65,6 +83,7 @@ fun App(
                         )
                     }
                 },
+                curRespondingTruck = reportState.respondingTruck
             )
         }
     ) { innerPadding ->
@@ -186,11 +205,19 @@ fun ReportsTopBar(
     currentScreen: Destinations,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
+    curRespondingTruck: String?
 ) {
+    var screenTitle: String
+    if (currentScreen.title == R.string.truck_landing_page) {
+        screenTitle = "Truck ${curRespondingTruck ?: ""} Dispatch"
+    } else {
+        screenTitle = stringResource(id = currentScreen.title)
+    }
     CenterAlignedTopAppBar(
         title = {
             Text(
-                stringResource(id = currentScreen.title),
+//                stringResource(id = currentScreen.title),
+                text = screenTitle,
                 color = MaterialTheme.colorScheme.onPrimary
             )
                 },
@@ -209,7 +236,8 @@ fun ReportsTopBar(
                     )
                 ) {
                     Icon(
-                        imageVector = Icons.Rounded.Menu,
+//                        imageVector = Icons.Rounded.Menu,
+                        imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
                         contentDescription = null,
                     )
                 }
@@ -217,3 +245,5 @@ fun ReportsTopBar(
         }
     )
 }
+
+fun NavController.isOnBackStack(routeString: String): Boolean = try { getBackStackEntry(routeString); true } catch(e: Throwable) { false }

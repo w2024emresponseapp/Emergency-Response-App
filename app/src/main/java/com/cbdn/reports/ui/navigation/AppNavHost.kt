@@ -11,6 +11,7 @@ import com.cbdn.reports.ui.views.AppMenu
 import com.cbdn.reports.ui.views.finishreport.FinishReport
 import com.cbdn.reports.ui.views.newreport.NewReport
 import com.cbdn.reports.ui.views.searchreports.SearchReports
+import com.cbdn.reports.ui.views.trucklandingpage.TruckLandingPage
 
 @Composable
 fun AppNavHost(
@@ -29,6 +30,12 @@ fun AppNavHost(
                 appViewModel = appViewModel,
                 navController = navController
                 )
+        }
+        composable(route = Destinations.TruckLandingPage.name) {
+            TruckLandingPage(
+                appViewModel = appViewModel,
+                navController = navController
+            )
         }
         composable(route = Destinations.AppMenu.toString()) {
             AppMenu(navController = navController)
