@@ -9,6 +9,9 @@ enum class Destinations(
     StartScreen(
         title = R.string.start_screen
     ),
+    TruckLandingPage(
+      title = R.string.truck_landing_page
+    ),
     AppMenu(
         title = R.string.app_name
     ),
