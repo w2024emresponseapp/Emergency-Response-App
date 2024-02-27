@@ -15,6 +15,9 @@ enum class Destinations(
     AppMenu(
         title = R.string.app_name
     ),
+    LogInPage(
+        title = R.string.admin_login
+    ),
     NewReport(
         title = R.string.submit_new_header
     ),
