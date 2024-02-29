@@ -96,7 +96,7 @@ fun StartScreen(
         MenuButton(
             // Moves to "App Menu" to tie this tested UI with the reporting function
             // this should be tied to the Admin Login Screen instead
-            onClick = { navController.navigate(Destinations.AppMenu.name) },
+            onClick = { navController.navigate(Destinations.LogInPage.name) },
 
             labelResource = R.string.admin_login,
             subLabelResource = R.string.admin_login_description,

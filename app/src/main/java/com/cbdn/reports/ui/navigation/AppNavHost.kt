@@ -9,6 +9,7 @@ import com.cbdn.reports.ui.viewmodel.AppViewModel
 import com.cbdn.reports.ui.views.startscreen.StartScreen
 import com.cbdn.reports.ui.views.AppMenu
 import com.cbdn.reports.ui.views.finishreport.FinishReport
+import com.cbdn.reports.ui.views.login.LogInPage
 import com.cbdn.reports.ui.views.newreport.NewReport
 import com.cbdn.reports.ui.views.searchreports.SearchReports
 import com.cbdn.reports.ui.views.trucklandingpage.TruckLandingPage
@@ -50,6 +51,13 @@ fun AppNavHost(
         composable(route = Destinations.FinishReport.name) {
             appViewModel.setPrevDestination(Destinations.FinishReport.name)
             FinishReport(
+                appViewModel = appViewModel,
+                navController = navController,
+            )
+        }
+        composable(route = Destinations.LogInPage.name) {
+            appViewModel.setPrevDestination(Destinations.LogInPage.name)
+            LogInPage(
                 appViewModel = appViewModel,
                 navController = navController,
             )
