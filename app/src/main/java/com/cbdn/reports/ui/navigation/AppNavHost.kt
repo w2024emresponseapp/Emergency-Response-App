@@ -9,6 +9,7 @@ import com.cbdn.reports.ui.viewmodel.AppViewModel
 import com.cbdn.reports.ui.views.startscreen.StartScreen
 import com.cbdn.reports.ui.views.AppMenu
 import com.cbdn.reports.ui.views.finishreport.FinishReport
+import com.cbdn.reports.ui.views.inputemergency.InputEmergency
 import com.cbdn.reports.ui.views.login.LogInPage
 import com.cbdn.reports.ui.views.newreport.NewReport
 import com.cbdn.reports.ui.views.searchreports.SearchReports
@@ -36,6 +37,12 @@ fun AppNavHost(
             TruckLandingPage(
                 appViewModel = appViewModel,
                 navController = navController
+            )
+        }
+        composable(route = Destinations.InputEmergency.name){
+            InputEmergency(
+                appViewModel = appViewModel,
+                navController = navController,
             )
         }
         composable(route = Destinations.AppMenu.toString()) {

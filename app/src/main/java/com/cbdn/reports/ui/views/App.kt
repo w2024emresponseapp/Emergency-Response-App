@@ -207,7 +207,7 @@ fun ReportsTopBar(
     navigateUp: () -> Unit,
     curRespondingTruck: String?
 ) {
-    var screenTitle: String
+    val screenTitle: String
     if (currentScreen.title == R.string.truck_landing_page) {
         screenTitle = "Truck ${curRespondingTruck ?: ""} Dispatch"
     } else {
