@@ -85,7 +85,12 @@ fun DispatchDetails(
             codeCategories.forEachIndexed { index, label ->
                 SegmentedButton(
                     selected = index == uiState.categoryIndex,
-                    onClick = { viewModel.setCategoryIndex(index) },
+                    onClick = {
+                        if (index != uiState.categoryIndex){
+                            viewModel.setEmergencyCode("")
+                        }
+                        viewModel.setCategoryIndex(index)
+                              },
                     shape = SegmentedButtonDefaults.itemShape(
                         index = index,
                         count = codeCategories.size),

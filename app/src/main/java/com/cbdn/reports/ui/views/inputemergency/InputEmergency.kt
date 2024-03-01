@@ -1,5 +1,9 @@
 package com.cbdn.reports.ui.views.inputemergency
 
+// UI elements on this page and their logic adapted from previous
+// group's efforts in DispatchDetails.kt
+// Peter Judge - 3/1/2024
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -105,7 +109,12 @@ fun InputEmergency(
                 codeCategories.forEachIndexed { index, label ->
                     SegmentedButton(
                         selected = index == uiState.categoryIndex,
-                        onClick = { appViewModel.setCategoryIndex(index) },
+                        onClick = {
+                            if (index != uiState.categoryIndex){
+                                appViewModel.setEmergencyCode("")
+                            }
+                            appViewModel.setCategoryIndex(index)
+                                  },
                         shape = SegmentedButtonDefaults.itemShape(
                             index = index,
                             count = codeCategories.size),
