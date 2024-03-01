@@ -163,7 +163,8 @@ fun InputEmergency(
         ) {
             FormButton(
                 onClick = {
-                          navController.popBackStack()
+                    appViewModel.resetUiMinusTruck()
+                    navController.popBackStack()
                 },
                 labelResource = R.string.cancel,
                 modifier = Modifier.height(80.dp)
