@@ -6,7 +6,7 @@ data class Report(
     var commandingOfficer: String? = null,
     var datetimeDispatch: Long? = null,
     var emergencyCode: String? = null,
-    // location
+    // location as an address string
     var location: String? = null,
     // on scene
     var datetimeArrival: Long? = null,

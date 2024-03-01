@@ -73,7 +73,7 @@ fun TruckLandingPage(
             // and then once that's submitted, move to the landing page
 
 //            onClick = { navController.navigate(Destinations.AppMenu.name) },
-            onClick = { navController.navigate(Destinations.AppMenu.name)},
+            onClick = { navController.navigate(Destinations.InputEmergency.name)},
             labelResource = R.string.salida,
             subLabelResource = R.string.salida_description,
             icon =  ImageVector.vectorResource(R.drawable.salida),

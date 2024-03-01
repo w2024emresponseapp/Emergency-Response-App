@@ -12,6 +12,9 @@ enum class Destinations(
     TruckLandingPage(
       title = R.string.truck_landing_page
     ),
+    InputEmergency(
+        title=R.string.input_emergency
+    ),
     AppMenu(
         title = R.string.app_name
     ),
