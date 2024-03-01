@@ -75,6 +75,7 @@ fun App(
                         !navController.isOnBackStack(Destinations.AppMenu.name) ||
                         currentScreen.name == Destinations.AppMenu.name
                     ) {
+                        if (currentScreen.name == Destinations.InputEmergency.name) appViewModel.resetUiMinusTruck()
                         navController.popBackStack()
                     } else {
                         navController.popBackStack(
