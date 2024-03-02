@@ -14,6 +14,7 @@ import com.cbdn.reports.ui.views.login.LogInPage
 import com.cbdn.reports.ui.views.newreport.NewReport
 import com.cbdn.reports.ui.views.searchreports.SearchReports
 import com.cbdn.reports.ui.views.trucklandingpage.TruckLandingPage
+import com.cbdn.reports.ui.views.waitingscreen.WaitingScreen
 
 @Composable
 fun AppNavHost(
@@ -60,6 +61,12 @@ fun AppNavHost(
             FinishReport(
                 appViewModel = appViewModel,
                 navController = navController,
+            )
+        }
+        composable(route = Destinations.WaitingScreen.name){
+            WaitingScreen(
+                appViewModel =appViewModel ,
+                navController = navController
             )
         }
         composable(route = Destinations.LogInPage.name) {

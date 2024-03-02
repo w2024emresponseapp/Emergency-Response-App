@@ -31,7 +31,7 @@ data class AppUiState(
     var searchTo: Long? = null,
 
     // New Report Form UI
-    var currentScreen: String = DetailSections.DispatchDetails.name,
+    var currentScreen: String = DetailSections.SiteDetails.name,
     var dispatchDetailsComplete: Boolean = false,
     var locationDetailsComplete: Boolean = false,
     var siteDetailsComplete: Boolean = false,

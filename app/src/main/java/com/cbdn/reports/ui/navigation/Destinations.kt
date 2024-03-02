@@ -27,6 +27,9 @@ enum class Destinations(
     FinishReport(
         title = R.string.finish_report
     ),
+    WaitingScreen(
+        title = R.string.waiting_page
+    ),
     SearchReports(
         title = R.string.search_reports
     ),
