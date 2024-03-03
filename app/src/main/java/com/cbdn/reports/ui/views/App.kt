@@ -6,6 +6,8 @@
 
 package com.cbdn.reports.ui.views
 
+import android.annotation.SuppressLint
+import android.widget.Toast
 import androidx.annotation.IdRes
 import androidx.annotation.NonNull
 import androidx.compose.foundation.background
@@ -27,12 +29,19 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonColors
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.Dialog
@@ -48,8 +57,10 @@ import com.cbdn.reports.ui.viewmodel.AppViewModel
 import com.cbdn.reports.ui.views.composables.FormButton
 import com.cbdn.reports.ui.views.composables.DialogHeader
 import com.cbdn.reports.ui.views.trucklandingpage.TruckLandingPage
+import kotlinx.coroutines.launch
 
 
+@SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun App(
     navController: NavHostController = rememberNavController(),
@@ -61,7 +72,10 @@ fun App(
     val currentScreen = Destinations.valueOf(
         backStackEntry?.destination?.route ?: Destinations.AppMenu.name
     )
+    val scope = rememberCoroutineScope()
+    val snackbarHostState = uiState.snackbarHostState
     Scaffold(
+        snackbarHost = {SnackbarHost(hostState = snackbarHostState)},
         topBar = {
             ReportsTopBar(
                 currentScreen = currentScreen,
@@ -88,6 +102,24 @@ fun App(
             )
         }
     ) { innerPadding ->
+//        if(uiState.submitSuccessful){
+//            scope.launch {
+//                snackbarHostState.showSnackbar(
+//                    message = "Report Submitted Successfully"
+//                )
+//            }
+//            appViewModel.setSubmitSuccessful(false)
+//        }
+        if(uiState.submitSuccessful){
+            val text = "Report Submitted Successfully!"
+            val duration = Toast.LENGTH_LONG
+
+            val toast = Toast.makeText(LocalContext.current, text, duration) // in Activity
+            toast.show()
+            appViewModel.setSubmitSuccessful(false)
+        }
+
+
         if (currentScreen == Destinations.AppMenu) {
             when (uiState.backButtonPrev) {
                 Destinations.NewReport.name -> {
