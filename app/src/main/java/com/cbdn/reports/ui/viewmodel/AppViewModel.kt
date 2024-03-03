@@ -1,6 +1,7 @@
 package com.cbdn.reports.ui.viewmodel
 
 import android.util.Log
+import androidx.compose.material3.SnackbarHostState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cbdn.reports.data.datamodel.FireStoreUtility
@@ -19,7 +20,10 @@ import retrofit2.HttpException
 
 data class AppUiState(
 
+    val snackbarHostState: SnackbarHostState = SnackbarHostState(),
     val isTruckSelectShowing: Boolean = false,
+    val isWaitingDialogShowing: Boolean = false,
+    val shouldShowWaitingDialog: Boolean = true,
     // Get Reports UI
     var backButtonPrev: String? = null,
     var reportModification: String? = null,
@@ -74,6 +78,12 @@ class AppViewModel(
         _uiState.update { AppUiState() }
         _reportState.update { Report(respondingTruck = curTruck)}
     }
+    fun resetUiReportSubmit() {
+        val curSuccess = _uiState.value.submitSuccessful
+        val curTruck = _reportState.value.respondingTruck
+        _uiState.update { AppUiState(submitSuccessful = curSuccess) }
+        _reportState.update { Report(respondingTruck = curTruck)}
+    }
     fun clearPulledReports() {
         _uiState.update {
             it.copy(pulledReports = null)
@@ -119,12 +129,27 @@ class AppViewModel(
             it.copy(searchTo = input)
         }
     }
-
     fun setIsTruckSelectShowing(input: Boolean) {
         _uiState.update {
             it.copy(isTruckSelectShowing = input)
         }
     }
+    fun setIsWaitingDialogShowing(input: Boolean) {
+        _uiState.update {
+            it.copy(isWaitingDialogShowing = input)
+        }
+    }
+    fun setShouldShowWaitingDialog(input: Boolean) {
+        _uiState.update {
+            it.copy(shouldShowWaitingDialog = input)
+        }
+    }
+    fun setSubmitSuccessful(input: Boolean) {
+        _uiState.update {
+            it.copy(submitSuccessful = input)
+        }
+    }
+
     private fun isReportComplete() {
         if (
             uiState.value.dispatchDetailsComplete &&

@@ -52,20 +52,30 @@ fun NewReport (
             SubmitNewBottomBar(
                 currentScreen = uiState.currentScreen,
                 submitReady = uiState.reportComplete,
+//                submitClick = {
+//                    appViewModel.submitReport()
+//                    navController.popBackStack(
+//                        route = Destinations.AppMenu.name,
+//                        inclusive = false)
+//                              },
                 submitClick = {
                     appViewModel.submitReport()
                     navController.popBackStack(
-                        route = Destinations.AppMenu.name,
-                        inclusive = false)
-                              },
+                        route = Destinations.TruckLandingPage.name,
+                        inclusive = false
+                    )
+                    appViewModel.resetUiReportSubmit()
+                },
                 updateCurrentScreen = { appViewModel.setCurrentScreen(it) },
-                navController = navController
+                shouldShowWaiting = uiState.shouldShowWaitingDialog,
+                appViewModel = appViewModel
             )
         }
     ) {innerPadding ->
         when (uiState.currentScreen) {
             DetailSections.DispatchDetails.name -> { DispatchDetails(
                 viewModel = appViewModel,
+                navController = navController,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(innerPadding)
@@ -200,7 +210,8 @@ fun SubmitNewBottomBar(
     submitReady: Boolean,
     submitClick: () -> Unit,
     updateCurrentScreen: (String) -> Unit,
-    navController: NavHostController
+    shouldShowWaiting: Boolean,
+    appViewModel: AppViewModel
 ) {
     BottomAppBar(
         containerColor = MaterialTheme.colorScheme.primary,
@@ -247,7 +258,13 @@ fun SubmitNewBottomBar(
                                 updateCurrentScreen(DetailSections.DispatchDetails.name)
                             DetailSections.DispatchDetails.name ->
 //                                updateCurrentScreen(DetailSections.SubmittalDetails.name)
-                                navController.navigate(Destinations.WaitingScreen.name)
+//                                navController.navigate(Destinations.WaitingScreen.name)
+                                if (shouldShowWaiting){
+                                    appViewModel.setIsWaitingDialogShowing(true)
+                                } else {
+                                    updateCurrentScreen(DetailSections.SubmittalDetails.name)
+                                }
+
                         }
                     },
                     labelResource = R.string.next,
