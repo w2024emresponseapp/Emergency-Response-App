@@ -27,8 +27,10 @@ import androidx.navigation.NavHostController
 import com.cbdn.reports.R
 import com.cbdn.reports.ui.navigation.Destinations
 import com.cbdn.reports.ui.viewmodel.AppViewModel
+import com.cbdn.reports.ui.views.composables.CancelReportDialog
 import com.cbdn.reports.ui.views.composables.OnPrimaryTextButton
 import com.cbdn.reports.ui.views.composables.OnSecondaryText
+import com.cbdn.reports.ui.views.composables.SaveReportDialog
 
 @Composable
 fun NewReport (
@@ -104,6 +106,12 @@ fun NewReport (
             ) }
 
         }
+    }
+    if (uiState.isCancelReportDialogShowing) {
+        CancelReportDialog(appViewModel = appViewModel, navController = navController)
+    }
+    if (uiState.isSaveReportDialogShowing) {
+        SaveReportDialog(appViewModel = appViewModel, navController = navController )
     }
 }
 

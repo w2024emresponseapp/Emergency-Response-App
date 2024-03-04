@@ -24,6 +24,8 @@ data class AppUiState(
     val isTruckSelectShowing: Boolean = false,
     val isWaitingDialogShowing: Boolean = false,
     val shouldShowWaitingDialog: Boolean = true,
+    val isCancelReportDialogShowing: Boolean = false,
+    val isSaveReportDialogShowing: Boolean = false,
     // Get Reports UI
     var backButtonPrev: String? = null,
     var reportModification: String? = null,
@@ -147,6 +149,16 @@ class AppViewModel(
     fun setSubmitSuccessful(input: Boolean) {
         _uiState.update {
             it.copy(submitSuccessful = input)
+        }
+    }
+    fun setIsCancelReportDialogShowing(input: Boolean) {
+        _uiState.update {
+            it.copy(isCancelReportDialogShowing = input)
+        }
+    }
+    fun setIsSaveReportDialogShowing(input: Boolean) {
+        _uiState.update {
+            it.copy(isSaveReportDialogShowing = input)
         }
     }
 

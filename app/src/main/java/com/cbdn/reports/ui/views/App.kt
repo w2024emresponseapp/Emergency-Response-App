@@ -85,6 +85,10 @@ fun App(
                         appViewModel.setRespondingTruck("")
                         navController.popBackStack()
 
+                    } else if(
+                        currentScreen.name == Destinations.NewReport.name
+                    ) {
+                        appViewModel.setIsCancelReportDialogShowing(true)
                     } else if (
                         !navController.isOnBackStack(Destinations.AppMenu.name) ||
                         currentScreen.name == Destinations.AppMenu.name
@@ -111,7 +115,7 @@ fun App(
 //            appViewModel.setSubmitSuccessful(false)
 //        }
         if(uiState.submitSuccessful){
-            val text = "Report Submitted Successfully!"
+            val text = stringResource(id = R.string.submit_successful_toast)
             val duration = Toast.LENGTH_LONG
 
             val toast = Toast.makeText(LocalContext.current, text, duration) // in Activity
