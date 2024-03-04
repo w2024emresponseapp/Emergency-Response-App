@@ -15,6 +15,7 @@
 
     <!-- GENERAL  -->
     <string name="search">Search</string>
+    <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="required">Required</string>
     <string name="add">Add</string>
@@ -109,6 +110,7 @@
     <string name="enter_name">Enter Name</string>
 
     <string name="submitted_successfully">Submitted Successfully</string>
+    <string name="submit_successful_toast">Report Submitted Successfully! Click \'Search Reports\' to view or amend</string>
     <string name="submit_successful_message">The Report has been successfully submitted with all necessary fields. It will be available in the archive to view or amend.</string>
     <string name="not_submitted">Report Not Submitted</string>
     <string name="not_submitted_message">The Report is finished but was not submitted. Would you like to submit it or discard these changes?</string>
@@ -116,6 +118,11 @@
     <string name="incomplete_message">The Report is incomplete and not submitted. Discard it or save it as incomplete. Incomplete reports may be finished or discarded later, but will not show up in the report archive.</string>
     <string name="save_as_incomplete">Save as Incomplete</string>
 
+    <!-- Cancel/Save Report Dialog -->
+    <string name="cancel_report_header">Cancel Report?</string>
+    <string name="cancel_report">Do you want to cancel this report and return to the landing page?</string>
+    <string name="no_cancel_report">No - Return To Report</string>
+    <string name="yes_cancel_report">Yes - Cancel Report</string>
 
     <!-- Finish, Search Report -->
     <string name="report_id">Report ID</string>
