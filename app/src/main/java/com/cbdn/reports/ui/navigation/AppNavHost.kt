@@ -15,6 +15,7 @@ import com.cbdn.reports.ui.views.newreport.NewReport
 import com.cbdn.reports.ui.views.searchreports.SearchReports
 import com.cbdn.reports.ui.views.trucklandingpage.TruckLandingPage
 import com.cbdn.reports.ui.views.waitingscreen.WaitingScreen
+import com.cbdn.reports.ui.views.admin_landing.AdminLanding
 
 @Composable
 fun AppNavHost(
@@ -72,6 +73,13 @@ fun AppNavHost(
         composable(route = Destinations.LogInPage.name) {
             appViewModel.setPrevDestination(Destinations.LogInPage.name)
             LogInPage(
+                appViewModel = appViewModel,
+                navController = navController,
+            )
+        }
+        composable(route = Destinations.AdminLoginLanding.name) {
+            appViewModel.setPrevDestination(Destinations.AdminLoginLanding.name)
+            AdminLanding(
                 appViewModel = appViewModel,
                 navController = navController,
             )

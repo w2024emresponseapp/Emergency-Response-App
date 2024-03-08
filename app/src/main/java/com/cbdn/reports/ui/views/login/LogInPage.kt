@@ -1,5 +1,6 @@
 package com.cbdn.reports.ui.views.login
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -26,6 +27,7 @@ fun LogInPage(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(color = MaterialTheme.colorScheme.secondary)
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
@@ -58,7 +60,7 @@ fun LogInPage(
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = { navController.navigate(Destinations.AppMenu.name) },
+            onClick = { navController.navigate(Destinations.AdminLoginLanding.name) },
             modifier = Modifier.fillMaxWidth(),
         ) {
             Text("Log In")

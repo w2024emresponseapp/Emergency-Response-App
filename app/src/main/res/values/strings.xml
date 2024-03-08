@@ -35,6 +35,7 @@
     <string name="select_truck">Select Truck</string>
     <string name="select_truck_description">Choose Which Truck to Assign</string>
     <string name="admin_login">Admin Login</string>
+    <string name="admin_login_landing">Admin Login Landing</string>
     <string name="admin_login_description">View trucks, current emergencies, or historical data</string>
 
     <!-- Input Emergency Page -->

@@ -21,6 +21,9 @@ enum class Destinations(
     LogInPage(
         title = R.string.admin_login
     ),
+    AdminLoginLanding(
+        title = R.string.admin_login_landing
+    ),
     NewReport(
         title = R.string.submit_new_header
     ),
