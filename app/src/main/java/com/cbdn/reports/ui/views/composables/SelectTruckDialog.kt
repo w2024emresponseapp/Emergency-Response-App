@@ -93,7 +93,7 @@ fun SelectTruckDialog(
                     TruckCard(
                         truck = truckDetail,
                         curSelectedTruck = reportState.respondingTruck,
-                        setRespondingTruck = { appViewModel.setRespondingTruck(truckDetail.code) },
+                        setRespondingTruck = { appViewModel.setRespondingTruck(it) },
                         modifier = modifier
                         )
                 }
@@ -114,7 +114,8 @@ fun SelectTruckDialog(
                     onClick = {
                         if (reportState.respondingTruck != null){
                             appViewModel.setIsTruckSelectShowing(false)
-                            navController.navigate(Destinations.AppMenu.name)
+//                            navController.navigate(Destinations.AppMenu.name)
+                            navController.navigate(Destinations.TruckLandingPage.name)
                         }
                     },
                     labelResource = R.string.submit,

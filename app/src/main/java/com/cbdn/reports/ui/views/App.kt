@@ -1,5 +1,15 @@
+// NavController Extension Function NavController.isOnBackStack() adapted for use in
+// application navigation tree taken from Stack Overflow answer
+// https://stackoverflow.com/questions/65529172/check-if-a-navigation-graph-is-on-the-backstack
+// inputs modified for use with route strings
+// by Peter Judge on 2/26/2024
+
 package com.cbdn.reports.ui.views
 
+import android.annotation.SuppressLint
+import android.widget.Toast
+import androidx.annotation.IdRes
+import androidx.annotation.NonNull
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -7,6 +17,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.ArrowBack
+import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.Done
 import androidx.compose.material.icons.rounded.Menu
 import androidx.compose.material.icons.rounded.Warning
@@ -17,16 +29,24 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonColors
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -36,8 +56,11 @@ import com.cbdn.reports.ui.navigation.Destinations
 import com.cbdn.reports.ui.viewmodel.AppViewModel
 import com.cbdn.reports.ui.views.composables.FormButton
 import com.cbdn.reports.ui.views.composables.DialogHeader
+import com.cbdn.reports.ui.views.trucklandingpage.TruckLandingPage
+import kotlinx.coroutines.launch
 
 
+@SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun App(
     navController: NavHostController = rememberNavController(),
@@ -49,14 +72,28 @@ fun App(
     val currentScreen = Destinations.valueOf(
         backStackEntry?.destination?.route ?: Destinations.AppMenu.name
     )
+    val scope = rememberCoroutineScope()
+    val snackbarHostState = uiState.snackbarHostState
     Scaffold(
+        snackbarHost = {SnackbarHost(hostState = snackbarHostState)},
         topBar = {
             ReportsTopBar(
                 currentScreen = currentScreen,
                 canNavigateBack = navController.previousBackStackEntry != null,
                 navigateUp = {
-                    if (currentScreen.name == Destinations.AppMenu.name){
+                    if (currentScreen.name == Destinations.TruckLandingPage.name){
                         appViewModel.setRespondingTruck("")
+                        navController.popBackStack()
+
+                    } else if(
+                        currentScreen.name == Destinations.NewReport.name
+                    ) {
+                        appViewModel.setIsCancelReportDialogShowing(true)
+                    } else if (
+                        !navController.isOnBackStack(Destinations.AppMenu.name) ||
+                        currentScreen.name == Destinations.AppMenu.name
+                    ) {
+                        if (currentScreen.name == Destinations.InputEmergency.name) appViewModel.resetUiMinusTruck()
                         navController.popBackStack()
                     } else {
                         navController.popBackStack(
@@ -65,9 +102,28 @@ fun App(
                         )
                     }
                 },
+                curRespondingTruck = reportState.respondingTruck
             )
         }
     ) { innerPadding ->
+//        if(uiState.submitSuccessful){
+//            scope.launch {
+//                snackbarHostState.showSnackbar(
+//                    message = "Report Submitted Successfully"
+//                )
+//            }
+//            appViewModel.setSubmitSuccessful(false)
+//        }
+        if(uiState.submitSuccessful){
+            val text = stringResource(id = R.string.submit_successful_toast)
+            val duration = Toast.LENGTH_LONG
+
+            val toast = Toast.makeText(LocalContext.current, text, duration) // in Activity
+            toast.show()
+            appViewModel.setSubmitSuccessful(false)
+        }
+
+
         if (currentScreen == Destinations.AppMenu) {
             when (uiState.backButtonPrev) {
                 Destinations.NewReport.name -> {
@@ -186,11 +242,19 @@ fun ReportsTopBar(
     currentScreen: Destinations,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
+    curRespondingTruck: String?
 ) {
+    val screenTitle: String
+    if (currentScreen.title == R.string.truck_landing_page) {
+        screenTitle = "Truck ${curRespondingTruck ?: ""} Dispatch"
+    } else {
+        screenTitle = stringResource(id = currentScreen.title)
+    }
     CenterAlignedTopAppBar(
         title = {
             Text(
-                stringResource(id = currentScreen.title),
+//                stringResource(id = currentScreen.title),
+                text = screenTitle,
                 color = MaterialTheme.colorScheme.onPrimary
             )
                 },
@@ -209,7 +273,8 @@ fun ReportsTopBar(
                     )
                 ) {
                     Icon(
-                        imageVector = Icons.Rounded.Menu,
+//                        imageVector = Icons.Rounded.Menu,
+                        imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
                         contentDescription = null,
                     )
                 }
@@ -217,3 +282,5 @@ fun ReportsTopBar(
         }
     )
 }
+
+fun NavController.isOnBackStack(routeString: String): Boolean = try { getBackStackEntry(routeString); true } catch(e: Throwable) { false }

@@ -15,6 +15,7 @@
 
     <!-- GENERAL  -->
     <string name="search">Search</string>
+    <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="required">Required</string>
     <string name="add">Add</string>
@@ -34,10 +35,31 @@
     <string name="select_truck">Select Truck</string>
     <string name="select_truck_description">Choose Which Truck to Assign</string>
     <string name="admin_login">Admin Login</string>
+    <string name="admin_login_landing">Admin Login Landing</string>
     <string name="admin_login_description">View trucks, current emergencies, or historical data</string>
+
+    <!-- Input Emergency Page -->
+    <string name="input_emergency">Input Emergency</string>
+    <string name="emergency_address">Enter Emergency Address</string>
+    <string name="emergency_category">Select Emergency Category</string>
+    <string name="emergency_code_select">Select Emergency Code</string>
+
+    <!-- Waiting Page -->
+    <string name="waiting_page">Waiting Page</string>
+    <string name="return_to_base">Return To Base</string>
+    <string name="return_to_base_description">Get navigation back to base and finish report</string>
+    <string name="finish_report_now">Finish Report Now</string>
+    <string name="finish_report_now_description">Skip navigation and submit report now</string>
+    <string name="return_to_report">Return To Report</string>
 
     <!-- SelectTruckDialog -->
     <string name="select_truck_dialog">Choose Your Truck</string>
+
+    <!-- Main Landing Page -->
+    <string name="truck_landing_page">Truck Landing Page</string>
+    <string name="salida">SALIDA</string>
+    <string name="salida_description">Respond to an emergency</string>
+    <string name="back_to_main">Back To Main Menu / Truck Select</string>
 
     <!-- SubmitNew -->
     <string name="submit_new_header">New Report</string>
@@ -89,6 +111,7 @@
     <string name="enter_name">Enter Name</string>
 
     <string name="submitted_successfully">Submitted Successfully</string>
+    <string name="submit_successful_toast">Report Submitted Successfully! Click \'Search Reports\' to view or amend</string>
     <string name="submit_successful_message">The Report has been successfully submitted with all necessary fields. It will be available in the archive to view or amend.</string>
     <string name="not_submitted">Report Not Submitted</string>
     <string name="not_submitted_message">The Report is finished but was not submitted. Would you like to submit it or discard these changes?</string>
@@ -96,6 +119,11 @@
     <string name="incomplete_message">The Report is incomplete and not submitted. Discard it or save it as incomplete. Incomplete reports may be finished or discarded later, but will not show up in the report archive.</string>
     <string name="save_as_incomplete">Save as Incomplete</string>
 
+    <!-- Cancel/Save Report Dialog -->
+    <string name="cancel_report_header">Cancel Report?</string>
+    <string name="cancel_report">Do you want to cancel this report and return to the landing page?</string>
+    <string name="no_cancel_report">No - Return To Report</string>
+    <string name="yes_cancel_report">Yes - Cancel Report</string>
 
     <!-- Dispatch Map Page -->
     <string name="dispatch_map">Dispatch Map</string>

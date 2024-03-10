@@ -1,4 +1,4 @@
-package com.cbdn.reports.ui.views.startscreen
+package com.cbdn.reports.ui.views.admin_landing
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -15,9 +15,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AddCircle
+import androidx.compose.material3.Button
 
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -30,7 +32,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -42,9 +43,8 @@ import com.cbdn.reports.ui.viewmodel.AppViewModel
 import com.cbdn.reports.ui.views.composables.MenuButton
 import com.cbdn.reports.ui.views.composables.SelectTruckDialog
 
-
 @Composable
-fun StartScreen(
+fun AdminLanding(
     appViewModel: AppViewModel,
     navController: NavController
 ){
@@ -55,7 +55,7 @@ fun StartScreen(
             .background(color = MaterialTheme.colorScheme.secondary),
         horizontalAlignment = Alignment.CenterHorizontally,
 
-    ) {
+        ) {
         Card(
             border = BorderStroke(1.dp, MaterialTheme.colorScheme.onSurface),
             shape = RectangleShape,
@@ -77,41 +77,36 @@ fun StartScreen(
                 .fillMaxWidth()
                 .background(color = MaterialTheme.colorScheme.secondary)
         )
-        MenuButton(
-            // this should open up the menu to choose which truck you're on
-            // and then once that's submitted, move to the landing page
+        // View Current Emergency Button
+        Button(
+            onClick = { /* Define navigation to View Current Emergency screen */ },
+            modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+        ) {
+            Text("View Current Emergency")
+        }
 
-//            onClick = { navController.navigate(Destinations.AppMenu.name) },
+        // View All Emergencies Button
+        Button(
+            onClick = { /* Define navigation to View All Emergencies screen */ },
+            modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+        ) {
+            Text("View All Emergencies")
+        }
+        // View Truck Status Button
+        Button(
             onClick = {appViewModel.setIsTruckSelectShowing(true)},
-            labelResource = R.string.select_truck,
-            subLabelResource = R.string.select_truck_description,
-            icon =  ImageVector.vectorResource(R.drawable.fire_truck),
-            modifier = Modifier.weight(2f),
-            isRound = true
-        )
-        Spacer(
-            modifier = Modifier
-                .height(136.dp)
-                .fillMaxWidth()
-                .background(color = MaterialTheme.colorScheme.secondary)
-        )
-        MenuButton(
-            // Moves to "App Menu" to tie this tested UI with the reporting function
-            // this should be tied to the Admin Login Screen instead
-            onClick = { navController.navigate(Destinations.LogInPage.name) },
+            modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+        ) {
+            Text("Choose Your Truck")
+        }
 
-            labelResource = R.string.admin_login,
-            subLabelResource = R.string.admin_login_description,
-            icon = ImageVector.vectorResource(R.drawable.admin_login),
-            modifier = Modifier.weight(1f),
-            isRound = true
-        )
-        Spacer(
-            modifier = Modifier
-                .height(36.dp)
-                .fillMaxWidth()
-                .background(color = MaterialTheme.colorScheme.secondary)
-        )
+        Button(
+            onClick = { navController.navigate(Destinations.AppMenu.name) },
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Text("Create/View Report")
+        }
+
 
     }
     if (uiState.isTruckSelectShowing) {
@@ -122,3 +117,4 @@ fun StartScreen(
         )
     }
 }
+

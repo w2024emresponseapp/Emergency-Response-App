@@ -1,6 +1,7 @@
 package com.cbdn.reports.ui.viewmodel
 
 import android.util.Log
+import androidx.compose.material3.SnackbarHostState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cbdn.reports.data.datamodel.FireStoreUtility
@@ -19,7 +20,12 @@ import retrofit2.HttpException
 
 data class AppUiState(
 
+    val snackbarHostState: SnackbarHostState = SnackbarHostState(),
     val isTruckSelectShowing: Boolean = false,
+    val isWaitingDialogShowing: Boolean = false,
+    val shouldShowWaitingDialog: Boolean = true,
+    val isCancelReportDialogShowing: Boolean = false,
+    val isSaveReportDialogShowing: Boolean = false,
     // Get Reports UI
     var backButtonPrev: String? = null,
     var reportModification: String? = null,
@@ -31,7 +37,7 @@ data class AppUiState(
     var searchTo: Long? = null,
 
     // New Report Form UI
-    var currentScreen: String = DetailSections.DispatchDetails.name,
+    var currentScreen: String = DetailSections.SiteDetails.name,
     var dispatchDetailsComplete: Boolean = false,
     var locationDetailsComplete: Boolean = false,
     var siteDetailsComplete: Boolean = false,
@@ -72,6 +78,12 @@ class AppViewModel(
     fun resetUiMinusTruck() {
         val curTruck = _reportState.value.respondingTruck
         _uiState.update { AppUiState() }
+        _reportState.update { Report(respondingTruck = curTruck)}
+    }
+    fun resetUiReportSubmit() {
+        val curSuccess = _uiState.value.submitSuccessful
+        val curTruck = _reportState.value.respondingTruck
+        _uiState.update { AppUiState(submitSuccessful = curSuccess) }
         _reportState.update { Report(respondingTruck = curTruck)}
     }
     fun clearPulledReports() {
@@ -119,12 +131,37 @@ class AppViewModel(
             it.copy(searchTo = input)
         }
     }
-
     fun setIsTruckSelectShowing(input: Boolean) {
         _uiState.update {
             it.copy(isTruckSelectShowing = input)
         }
     }
+    fun setIsWaitingDialogShowing(input: Boolean) {
+        _uiState.update {
+            it.copy(isWaitingDialogShowing = input)
+        }
+    }
+    fun setShouldShowWaitingDialog(input: Boolean) {
+        _uiState.update {
+            it.copy(shouldShowWaitingDialog = input)
+        }
+    }
+    fun setSubmitSuccessful(input: Boolean) {
+        _uiState.update {
+            it.copy(submitSuccessful = input)
+        }
+    }
+    fun setIsCancelReportDialogShowing(input: Boolean) {
+        _uiState.update {
+            it.copy(isCancelReportDialogShowing = input)
+        }
+    }
+    fun setIsSaveReportDialogShowing(input: Boolean) {
+        _uiState.update {
+            it.copy(isSaveReportDialogShowing = input)
+        }
+    }
+
     private fun isReportComplete() {
         if (
             uiState.value.dispatchDetailsComplete &&
