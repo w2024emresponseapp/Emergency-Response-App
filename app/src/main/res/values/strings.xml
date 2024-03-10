@@ -97,6 +97,26 @@
     <string name="save_as_incomplete">Save as Incomplete</string>
 
 
+    <!-- Dispatch Map Page -->
+    <string name="dispatch_map">Dispatch Map</string>
+    <string name="dispatch_map_header">Dispatch Map</string>
+    <string name="cont">Continue</string>
+    <string name="cont_desc">Go to the next screen</string>
+    <string name="navigate">Navigate To Scene</string>
+    <string name="nav_desc">Open up Google Maps for navigation</string>
+    <string name="canc">Cancel</string>
+    <string name="canc_desc">Go back to the previous screen</string>
+
+    <!-- Return To Base Page -->
+    <string name="return_to_base">Return To Base</string>
+    <string name="return_to_base_head">Return To Base</string>
+    <string name="return_cancel">Cancel</string>
+    <string name="return_cancel_desc">Go back to the previous screen</string>
+    <string name="returned">Returned</string>
+    <string name="returned_desc">Finish Report</string>
+    <string name="navigate_base">Navigate To Base</string>
+    <string name="navigate_base_description">Open up Google Maps for navigation</string>
+
     <!-- Finish, Search Report -->
     <string name="report_id">Report ID</string>
     <string name="from_date">From: %s</string>
