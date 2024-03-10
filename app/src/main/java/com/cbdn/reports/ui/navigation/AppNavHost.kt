@@ -29,9 +29,15 @@ fun AppNavHost(
     NavHost(
         navController = navController,
 //        startDestination = Destinations.AppMenu.name,
-        startDestination = Destinations.ReturnToBase.name,
+        startDestination = Destinations.StartScreen.name,
         modifier = modifier
     ) {
+        composable(route = Destinations.StartScreen.name) {
+            StartScreen(
+                appViewModel = appViewModel,
+                navController = navController
+            )
+        }
         composable(route = Destinations.DispatchMap.name) {
             DispatchMap(
                 appViewModel = appViewModel,

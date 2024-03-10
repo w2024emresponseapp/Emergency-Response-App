@@ -136,7 +136,7 @@
     <string name="canc_desc">Go back to the previous screen</string>
 
     <!-- Return To Base Page -->
-    <string name="return_to_base">Return To Base</string>
+
     <string name="return_to_base_head">Return To Base</string>
     <string name="return_cancel">Cancel</string>
     <string name="return_cancel_desc">Go back to the previous screen</string>

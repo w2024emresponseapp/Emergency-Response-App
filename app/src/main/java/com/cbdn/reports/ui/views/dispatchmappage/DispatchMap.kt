@@ -56,6 +56,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.cbdn.reports.ui.navigation.Destinations
 import com.cbdn.reports.ui.views.composables.MenuButton
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.AdvancedMarkerOptions
@@ -169,7 +170,7 @@ fun DispatchMap(
                 .background(color = MaterialTheme.colorScheme.secondary)
         )
         MenuButton(
-            onClick = { /*TODO*/ },
+            onClick = { navController.navigate(Destinations.NewReport.name) },
             labelResource = R.string.cont,
             subLabelResource = R.string.cont_desc,
             icon = ImageVector.vectorResource(R.drawable.baseline_arrow_forward_ios_24),
@@ -197,7 +198,7 @@ fun DispatchMap(
                 .background(color = MaterialTheme.colorScheme.secondary)
         )
         MenuButton(
-            onClick = { /*TODO*/ },
+            onClick = { navController.popBackStack() },
             labelResource = R.string.canc,
             subLabelResource = R.string.canc_desc,
             icon = ImageVector.vectorResource(R.drawable.baseline_arrow_back_ios_24),

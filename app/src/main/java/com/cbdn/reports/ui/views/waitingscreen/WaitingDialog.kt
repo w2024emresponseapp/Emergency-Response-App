@@ -57,7 +57,8 @@ fun WaitingDialog(
                 onClick = {
                     appViewModel.setIsWaitingDialogShowing(false)
                     appViewModel.setShouldShowWaitingDialog(false)
-                    appViewModel.setCurrentScreen(DetailSections.SubmittalDetails.name)
+                    navController.navigate(Destinations.ReturnToBase.name)
+//                    appViewModel.setCurrentScreen(DetailSections.SubmittalDetails.name)
 
                 },
                 labelResource = R.string.return_to_base,
