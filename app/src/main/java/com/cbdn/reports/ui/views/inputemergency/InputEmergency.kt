@@ -173,7 +173,7 @@ fun InputEmergency(
                 onClick = {
                     if (reportState.location != null && reportState.emergencyCode != null){
 //                        navController.navigate(Destinations.AppMenu.name)
-                        navController.navigate(Destinations.NewReport.name)
+                        navController.navigate(Destinations.DispatchMap.name)
                     }
                 },
                 labelResource = R.string.submit,
