@@ -30,6 +30,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import android.Manifest
 import android.app.Activity
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.location.Location
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.content.ContextCompat
@@ -48,43 +49,20 @@ fun LocationDetails(
     val santoDomingo = LatLng(18.46, -69.94)
     val context = LocalContext.current as Activity
 
-    // Citation for the following snippet of code
-    // Date: 2/19/2024
-    // Adapted from Google Maps SDK for Android tutorial for slecting current place
-    // Source URL: https://developers.google.com/maps/documentation/android-sdk/current-place-tutorial
-    var fusedLocationProviderClient: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context)
-    var lastKnownLocation: Location? = null
-    var cameraPositionState = rememberCameraPositionState {
-        if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
-        {
-            val locationResult = fusedLocationProviderClient.lastLocation
-            locationResult.addOnCompleteListener(context) { task ->
-                if (task.isSuccessful) {
-                    // Get the location
-                    lastKnownLocation = task.result
-                    if (lastKnownLocation != null) {
-                        // Positions the map
-                        position = CameraPosition.fromLatLngZoom(LatLng(
-                            lastKnownLocation!!.latitude,
-                            lastKnownLocation!!.longitude
-                        ),
-                            10f
-                        )
-                        // Place the pin
-                        pinLocation = LatLng(
-                            lastKnownLocation!!.latitude,
-                            lastKnownLocation!!.longitude
-                        )
-                        // Get the address using the lat and long
-                        coroutineScope.launch(Dispatchers.IO) {
-                            viewModel.getAddress(LatLng(
-                                lastKnownLocation!!.latitude,
-                                lastKnownLocation!!.longitude
-                            ), BuildConfig.MAPS_API_KEY)
-                        }
-                    }
-                        }
-                    }
+    // Location Info
+    var mapCoordinates = LatLng(18.46, -69.94)
+    val currentLocation = reportState.location
+    val geocoder = Geocoder(context)
+    val geoListener = Geocoder.GeocodeListener { addressList ->
+        mapCoordinates = LatLng(addressList[0].latitude, addressList[0].longitude)
+    }
+    if (currentLocation != null) {
+        geocoder.getFromLocationName(currentLocation, 1, geoListener)
+    }
+
+    val cameraPositionState = rememberCameraPositionState {
+        if (currentLocation != null) {
+            position = CameraPosition.fromLatLngZoom(mapCoordinates, 10f)
         } else {
             position = CameraPosition.fromLatLngZoom(santoDomingo, 10f)
         }

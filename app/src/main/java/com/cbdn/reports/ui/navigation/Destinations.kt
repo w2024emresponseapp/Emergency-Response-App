@@ -36,6 +36,12 @@ enum class Destinations(
     SearchReports(
         title = R.string.search_reports
     ),
+    DispatchMap(
+        title = R.string.dispatch_map
+    ),
+    ReturnToBase(
+        title = R.string.return_to_base
+    )
 //    ViewStatistics(
 //        title = R.string.view_statistics
 //    )
