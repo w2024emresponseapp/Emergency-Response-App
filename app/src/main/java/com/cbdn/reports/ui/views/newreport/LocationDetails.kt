@@ -44,17 +44,17 @@ fun LocationDetails(
 ) {
     // Declaring our variables
     val reportState by viewModel.reportState.collectAsStateWithLifecycle()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     var pinLocation by remember { mutableStateOf(LatLng(0.0,0.0))}
     val coroutineScope = rememberCoroutineScope()
     val santoDomingo = LatLng(18.46, -69.94)
     val context = LocalContext.current as Activity
 
     // Location Info
-    var mapCoordinates = LatLng(18.46, -69.94)
     val currentLocation = reportState.location
     val geocoder = Geocoder(context)
     val geoListener = Geocoder.GeocodeListener { addressList ->
-        mapCoordinates = LatLng(addressList[0].latitude, addressList[0].longitude)
+        viewModel.setCoordinates(LatLng(addressList[0].latitude, addressList[0].longitude))
     }
     if (currentLocation != null) {
         geocoder.getFromLocationName(currentLocation, 1, geoListener)
@@ -62,7 +62,7 @@ fun LocationDetails(
 
     val cameraPositionState = rememberCameraPositionState {
         if (currentLocation != null) {
-            position = CameraPosition.fromLatLngZoom(mapCoordinates, 10f)
+            position = CameraPosition.fromLatLngZoom(uiState.coordinates, 10f)
         } else {
             position = CameraPosition.fromLatLngZoom(santoDomingo, 10f)
         }

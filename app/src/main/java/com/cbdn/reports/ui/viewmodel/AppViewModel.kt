@@ -46,6 +46,7 @@ data class AppUiState(
     // dispatch
     var categoryIndex: Int = 0,
     // location
+    var coordinates: LatLng = LatLng(18.46, -69.94),    // Santo Domingo
     // on scene
     var policeCheck: Boolean = false,
     var ambulanceCheck: Boolean = false,
@@ -160,6 +161,10 @@ class AppViewModel(
         _uiState.update {
             it.copy(isSaveReportDialogShowing = input)
         }
+    }
+
+    fun setCoordinates(input: LatLng) {
+        _uiState.update { it.copy(coordinates = input) }
     }
 
     private fun isReportComplete() {

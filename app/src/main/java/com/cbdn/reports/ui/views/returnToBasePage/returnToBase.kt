@@ -80,12 +80,11 @@ fun ReturnToBase(
     val baseLocation = LatLng(30.26, -81.56)
 
     // Location Info
-    var mapCoordinates = LatLng(30.29, -81.59)
     val currentLocation = reportState.location
     val context = LocalContext.current as Activity
     val geocoder = Geocoder(context)
     val geoListener = Geocoder.GeocodeListener { addressList ->
-        mapCoordinates = LatLng(addressList[0].latitude, addressList[0].longitude)
+        appViewModel.setCoordinates(LatLng(addressList[0].latitude, addressList[0].longitude))
     }
     if (currentLocation != null) {
         geocoder.getFromLocationName(currentLocation, 1, geoListener)
@@ -135,14 +134,14 @@ fun ReturnToBase(
                 .background(color = MaterialTheme.colorScheme.secondary)
         )
         GoogleMap(
-            cameraPositionState = CameraPositionState(CameraPosition.fromLatLngZoom(mapCoordinates, 10f)),
+            cameraPositionState = CameraPositionState(CameraPosition.fromLatLngZoom(uiState.coordinates, 10f)),
             modifier = Modifier
                 .height(200.dp)
                 .fillMaxWidth()
         ) {
             if (bmpIcon != null) {
                 Marker(
-                    state = MarkerState(position = mapCoordinates),
+                    state = MarkerState(position = uiState.coordinates),
                     icon = BitmapDescriptorFactory.fromBitmap(bmpIcon)
                 )
                 Marker(
