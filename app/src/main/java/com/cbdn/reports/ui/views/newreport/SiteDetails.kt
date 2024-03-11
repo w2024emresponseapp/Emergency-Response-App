@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cbdn.reports.R
-import com.cbdn.reports.data.VictimCodeData
 import com.cbdn.reports.ui.viewmodel.AppViewModel
 import com.cbdn.reports.ui.views.composables.FormAddVictimDialog
 import com.cbdn.reports.ui.views.composables.FormButton
@@ -27,6 +26,7 @@ import com.cbdn.reports.ui.views.composables.FormSubHeader
 import com.cbdn.reports.ui.views.composables.FormSubHeaderWithArgs
 import com.cbdn.reports.ui.views.composables.FormSwitchWithTextField
 import com.cbdn.reports.ui.views.composables.FormVictimInfoCard
+import com.cbdn.reports.ui.views.composables.VictimCodeData
 
 @Composable
 fun SiteDetails(

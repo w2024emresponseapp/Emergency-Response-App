@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">CBDN Reports</string>
+
     <!-- App Menu -->
     <string name="report_submission">Report Submission</string>
     <string name="new_report">New Report</string>
@@ -11,7 +12,6 @@
     <string name="view_filter_description">Search, filter, and select reports to view or amend.</string>
     <string name="view_statistics">View Statistics</string>
     <string name="view_statistics_description">View aggregate data from reports database.</string>
-
 
     <!-- GENERAL  -->
     <string name="search">Search</string>
@@ -57,12 +57,13 @@
 
     <!-- Main Landing Page -->
     <string name="truck_landing_page">Truck Landing Page</string>
-    <string name="salida">SALIDA</string>
+    <string name="salida">LEAVE</string>
     <string name="salida_description">Respond to an emergency</string>
     <string name="back_to_main">Back To Main Menu / Truck Select</string>
 
     <!-- SubmitNew -->
     <string name="submit_new_header">New Report</string>
+
     <!-- SubmitNewDispatch -->
     <string name="dispatch">Dispatch</string>
     <string name="submit_dispatch_details_header">Dispatch Details</string>
@@ -109,7 +110,6 @@
     <string name="date_and_time_of_return">Date and Time of Return</string>
     <string name="report_writer">Report Writer</string>
     <string name="enter_name">Enter Name</string>
-
     <string name="submitted_successfully">Submitted Successfully</string>
     <string name="submit_successful_toast">Report Submitted Successfully! Click \'Search Reports\' to view or amend</string>
     <string name="submit_successful_message">The Report has been successfully submitted with all necessary fields. It will be available in the archive to view or amend.</string>
@@ -136,7 +136,6 @@
     <string name="canc_desc">Go back to the previous screen</string>
 
     <!-- Return To Base Page -->
-
     <string name="return_to_base_head">Return To Base</string>
     <string name="return_cancel">Cancel</string>
     <string name="return_cancel_desc">Go back to the previous screen</string>
@@ -154,5 +153,113 @@
     <string name="amend">Amend</string>
     <string name="no_results">No Results</string>
     <string name="end_of_results">End of Results</string>
-    <!-- View Statistics -->
+
+    <!-- Emergency Categories -->
+    <string name="emergency_category_1_code">F</string>
+    <string name="emergency_category_2_code">R</string>
+    <string name="emergency_category_3_code">I</string>
+    <string name="emergency_category_4_code">O</string>
+    <string name="emergency_category_1_name">Fire</string>
+    <string name="emergency_category_2_name">Rescue</string>
+    <string name="emergency_category_3_name">Accident</string>
+    <string name="emergency_category_4_name">Other</string>
+
+    <!-- Emergency Codes - Fires -->
+    <string name="emergency_f_1_code">F-1</string>
+    <string name="emergency_f_2_code">F-2</string>
+    <string name="emergency_f_3_code">F-3</string>
+    <string name="emergency_f_4_code">F-4</string>
+    <string name="emergency_f_5_code">F-5</string>
+    <string name="emergency_f_6_code">F-6</string>
+    <string name="emergency_f_7_code">F-7</string>
+    <string name="emergency_f_8_code">F-8</string>
+    <string name="emergency_f_9_code">F-9</string>
+    <string name="emergency_f_10_code">F-10</string>
+    <string name="emergency_f_1_name">Residential Fire (F-1)</string>
+    <string name="emergency_f_2_name">Commercial Fire (F-2)</string>
+    <string name="emergency_f_3_name">LPG Exhaust (F-3)</string>
+    <string name="emergency_f_4_name">Electrical Fire (F-4)</string>
+    <string name="emergency_f_5_name">Motor Vehicle Fire (F-5)</string>
+    <string name="emergency_f_6_name">Forest Fire or Landfill (F-6)</string>
+    <string name="emergency_f_7_name">Dangerous Materials (F-7)</string>
+    <string name="emergency_f_8_name">Fuel Spill (F-8)</string>
+    <string name="emergency_f_9_name">Boat Fire (F-9)</string>
+    <string name="emergency_f_10_name">Aircraft Fire (F-10)</string>
+
+    <!-- Emergency Codes - Rescues -->
+    <string name="emergency_r_1_code">R-1</string>
+    <string name="emergency_r_2_code">R-2</string>
+    <string name="emergency_r_3_code">R-3</string>
+    <string name="emergency_r_4_code">R-4</string>
+    <string name="emergency_r_5_code">R-5</string>
+    <string name="emergency_r_6_code">R-6</string>
+    <string name="emergency_r_1_name">Aquatic Rescue (R-1)</string>
+    <string name="emergency_r_2_name">Land Rescue (R-2)</string>
+    <string name="emergency_r_3_name">Rescue at Height (R-3)</string>
+    <string name="emergency_r_4_name">Animal Rescue (R-4)</string>
+    <string name="emergency_r_5_name">Vehicle Rescue (R-5)</string>
+    <string name="emergency_r_6_name">Suicide Attempt (R-6)</string>
+
+    <!-- Emergency Codes - Incidents -->
+    <string name="emergency_i_15_code">I-15</string>
+    <string name="emergency_i_16_code">I-16</string>
+    <string name="emergency_i_17_code">I-17</string>
+    <string name="emergency_i_15_name">Personal Accident (I-15)</string>
+    <string name="emergency_i_16_name">Car Accident (I-16)</string>
+    <string name="emergency_i_17_name">Air Crash (I-17)</string>
+
+    <!-- Emergency Codes - Other -->
+    <string name="emergency_e_1_code">E-1</string>
+    <string name="emergency_d_2_code">D-2</string>
+    <string name="emergency_i_1_code">I-1</string>
+    <string name="emergency_poda_code">PODA</string>
+    <string name="emergency_e_1_name">Burst (E-1)</string>
+    <string name="emergency_d_2_name">Landslide (D-2)</string>
+    <string name="emergency_i_1_name">Flood (I-1)</string>
+    <string name="emergency_poda_name">PODA</string>
+
+    <!-- Truck Codes -->
+    <string name="truck_r_30_code">R-30</string>
+    <string name="truck_r_32_code">R-32</string>
+    <string name="truck_r_36_code">R-36</string>
+    <string name="truck_b_2_code">B-2</string>
+    <string name="truck_b_3_code">B-3</string>
+    <string name="truck_b_4_code">B-4</string>
+    <string name="truck_b_5_code">B-5</string>
+    <string name="truck_b_6_code">B-6</string>
+    <string name="truck_b_7_code">B-7</string>
+    <string name="truck_b_9_code">B-9</string>
+    <string name="truck_b_10_code">B-10</string>
+    <string name="truck_b_11_code">B-11</string>
+    <string name="truck_b_12_code">B-12</string>
+    <string name="truck_b_16_code">B-16</string>
+    <string name="truck_b_15_code">B-15</string>
+    <string name="truck_b_18_code">B-18</string>
+    <string name="truck_b_19_code">B-19</string>
+    <string name="truck_b_20_code">B-20</string>
+    <string name="truck_b_21_code">B-21</string>
+    <string name="truck_b_22_code">B-22</string>
+    <string name="truck_b_31_code">B-31</string>
+    <string name="truck_c_9_code">C-9</string>
+    <string name="truck_c_10_code">C-10</string>
+    <string name="truck_c_12_code">C-12</string>
+    <string name="truck_c_21_code">C-21</string>
+    <string name="truck_c_22_code">C-22</string>
+    <string name="truck_c_23_code">C-23</string>
+    <string name="truck_c_24_code">C-24</string>
+    <string name="truck_e_26_code">E-26</string>
+    <string name="truck_e_27_code">E-27</string>
+    <string name="truck_e_28_code">E-28</string>
+
+    <!-- Victim Codes -->
+    <string name="victim_i_26_code">I-26</string>
+    <string name="victim_i_27_code">I-27</string>
+    <string name="victim_i_28_code">I-28</string>
+    <string name="victim_i_28_adv_code">I-28 ADVANCED</string>
+    <string name="victim_i_29_code">I-29</string>
+    <string name="victim_i_26_name">Person without physical damage (I-26)</string>
+    <string name="victim_i_27_name">Slightly affected person (I-27)</string>
+    <string name="victim_i_28_name">Person with serious injuries (I-28)</string>
+    <string name="victim_i_28_adv_name">Person in critical condition (I-28 ADVANCED)</string>
+    <string name="victim_i_29_name">Deceased Person (I-29)</string>
 </resources>
