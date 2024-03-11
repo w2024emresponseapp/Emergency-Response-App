@@ -9,7 +9,6 @@ data class Report(
     var emergencyCode: String? = null,
     // location as an address string
     var location: String? = null,
-    var coordinates: LatLng = LatLng(18.46, -69.94),    // Santo Domingo
     // on scene
     var datetimeArrival: Long? = null,
     var policePresent: String? = null,
@@ -31,7 +30,6 @@ data class Report(
         datetimeDispatch = null,
         emergencyCode = null,
         location = null,
-        coordinates = LatLng(18.46, -69.94),
         datetimeArrival = null,
         policePresent = null,
         ambulancePresent = null,
