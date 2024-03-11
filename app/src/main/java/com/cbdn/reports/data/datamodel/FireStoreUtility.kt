@@ -14,7 +14,7 @@ import kotlinx.coroutines.tasks.await
 
 
 class FireStoreUtility {
-     private val db: FirebaseFirestore = Firebase.firestore
+    private val db: FirebaseFirestore = Firebase.firestore
     init {
         val settings = firestoreSettings {
             // Use memory cache
@@ -119,13 +119,14 @@ class FireStoreUtility {
             return report.datetimeDispatch!! in (start ?: 0)..(end ?: Long.MAX_VALUE)
         } else {
             for (victim in report.victimInfo) {
-                if (victim.name == content){
+                if (content.lowercase() in victim.name.lowercase() &&
+                    report.datetimeDispatch!! in (start ?: 0)..(end ?: Long.MAX_VALUE)){
                     return true
                 }
             }
-            return (report.commandingOfficer == content ||
-                    report.reportWriter == content ||
-                    report.location == content) &&
+            return (content.lowercase() in report.commandingOfficer!!.lowercase() ||
+                    content.lowercase() in report.reportWriter!!.lowercase() ||
+                    content.lowercase() in report.location!!.lowercase()) &&
                     report.datetimeDispatch!! in (start ?: 0)..(end ?: Long.MAX_VALUE)
         }
     }
