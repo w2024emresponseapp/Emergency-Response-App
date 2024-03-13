@@ -16,9 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import com.cbdn.reports.R
-import com.cbdn.reports.data.EmergencyCodes
-import com.cbdn.reports.data.Trucks
-import com.cbdn.reports.data.VictimCodes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

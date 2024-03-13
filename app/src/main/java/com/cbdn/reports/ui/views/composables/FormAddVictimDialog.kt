@@ -13,7 +13,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.cbdn.reports.R
-import com.cbdn.reports.data.VictimCodes
 
 @Composable
 fun FormAddVictimDialog(

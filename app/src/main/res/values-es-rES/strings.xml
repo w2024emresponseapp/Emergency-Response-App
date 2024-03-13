@@ -1,0 +1,265 @@
+<resources>
+    <string name="app_name">CBDN Reportes</string>
+
+    <!-- App Menu -->
+    <string name="report_submission">Envío De Reporte</string>
+    <string name="new_report">Reporte Nuevo</string>
+    <string name="submit_new_description">Iniziar un reporte nuevo.</string>
+    <string name="finish_report">Terminar Reporte</string>
+    <string name="submit_finish_description">Selecionar un reporte incompleto y completarlo.</string>
+    <string name="report_database">Base de Datos de Reportes</string>
+    <string name="search_reports">Buscar Reportes</string>
+    <string name="view_filter_description">Buscar, filtrar, y selecionar reportes para ver o enmendar.</string>
+    <string name="view_statistics">Ver Estadísticas</string>
+    <string name="view_statistics_description">Ver datos agregados del base de datos de reportes.</string>
+
+    <!-- GENERAL  -->
+    <string name="search">Buscar</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="required">Requerido</string>
+    <string name="add">Agregar</string>
+    <string name="edit">Editar</string>
+    <string name="update">Actualizar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="ok">OK</string>
+    <string name="remove">Eliminar</string>
+    <string name="previous">Previo</string>
+    <string name="submit">Entregar</string>
+    <string name="next">Próximo</string>
+    <string name="change_date">Cambiar Fecha</string>
+    <string name="change_time">Cambiar Hora</string>
+
+    <!-- StartScreen -->
+    <string name="start_screen">Pantalla de Inicio</string>
+    <string name="select_truck">Selecionar Camión</string>
+    <string name="select_truck_description">Selecionar el Camión Para Asignación</string>
+    <string name="admin_login">Acceso Administrativo</string>
+    <string name="admin_login_landing">Página de Acceso Administrativo</string>
+    <string name="admin_login_description">Ver camiones, emergencias actuales, o datos históricos</string>
+
+    <!-- Input Emergency Page -->
+    <string name="input_emergency">Entrar Emrgencia</string>
+    <string name="emergency_address">Entrar Dirección de Emergencia</string>
+    <string name="emergency_category">Seleccionar Categoría de Emergencia</string>
+    <string name="emergency_code_select">Seleccionar Código de Emergencia</string>
+
+    <!-- Waiting Page -->
+    <string name="waiting_page">Página de Espera</string>
+    <string name="return_to_base">Volver a la Base</string>
+    <string name="return_to_base_description">Regresar la navegación a la base y finalizar el reporte</string>
+    <string name="finish_report_now">Terminar Reporte Ahora</string>
+    <string name="finish_report_now_description">Saltar navegación y enviar el reporte ahora</string>
+    <string name="return_to_report">Volver al Reporte</string>
+
+    <!-- SelectTruckDialog -->
+    <string name="select_truck_dialog">Selecionar Tu Camión</string>
+
+    <!-- Main Landing Page -->
+    <string name="truck_landing_page">Página de Camiones</string>
+    <string name="salida">SALIDA</string>
+    <string name="salida_description">Responder a emergencias</string>
+    <string name="back_to_main">Volver al Menú Principal / Selección de Camiones</string>
+
+    <!-- SubmitNew -->
+    <string name="submit_new_header">Reporte Nuevo</string>
+
+    <!-- SubmitNewDispatch -->
+    <string name="dispatch">Despacho</string>
+    <string name="submit_dispatch_details_header">Detalles de Despacho</string>
+    <string name="responding_truck">Unidad Respondiendo</string>
+    <string name="select_truck_id">Selecionar Identificación de Unidad</string>
+    <string name="commanding_officer">Comandante</string>
+    <string name="enter_officers_name">Nombre de Comandante</string>
+    <string name="date_and_time_of_dispatch">Fecha y Hora de Despacho</string>
+    <string name="emergency_code">Tipo de Emergencia</string>
+    <string name="select_emergency_code_id">Selecionar Código de Emergencia</string>
+    <string name="select_code_category">Selecionar Categoría de Código</string>
+
+    <!-- SubmitNewLocation -->
+    <string name="submit_location_header">Datos de Ubicación</string>
+    <string name="location">Ubicación</string>
+    <string name="enter_location">Entrar Ubicación</string>
+
+    <!-- SubmitNewOnScene -->
+    <string name="on_scene">En Escena</string>
+    <string name="submit_on_scene_details_header">Detalles De Escena</string>
+    <string name="date_and_time_of_arrival">Fecha y Hora de Llegada</string>
+    <string name="unit_id">Identificación de Unidad</string>
+    <string name="police_present">Unidad PN</string>
+    <string name="ambulance_present">Unidad Médica</string>
+    <string name="electric_company_present">Unidad Compañía Eléctrica</string>
+    <string name="transit_police_present">Unidad DIGESETT</string>
+    <string name="victim_info">Datos de la Víctima</string>
+    <string name="victim_count_with_count">Recuento de Víctima: %s</string>
+    <string name="victim_details">Detalles de Víctima</string>
+    <string name="victim_status_code">Estado de la Víctima</string>
+    <string name="victim_name">Nombre</string>
+    <string name="victim_age">Edad</string>
+    <string name="victim_number_with_data">Numero de Víctimas: %s</string>
+    <string name="victim_identification_with_data">Identificación: %s</string>
+    <string name="victim_status_code_with_data">Código de Estado: %s</string>
+    <string name="victim_name_with_data">Nombre: %s</string>
+    <string name="victim_age_with_data">Edad: %s</string>
+    <string name="victim_identification">Identificación</string>
+    <string name="notes">Notas</string>
+    <string name="enter_notes">Entrar Notas</string>
+
+    <!-- SubmitNewOnSubmit -->
+    <string name="submit_submittal_details_header">Detalles de Envío</string>
+    <string name="date_and_time_of_return">Fecha y Hora de Regreso</string>
+    <string name="report_writer">Escritor de Reporte</string>
+    <string name="enter_name">Entrar Nombre</string>
+    <string name="submitted_successfully">Enviado Exitosamente</string>
+    <string name="submit_successful_toast">Reporte Enviado Exitosamente! Haga clic en \'Buscar Reportes\' para ver o modificar.</string>
+    <string name="submit_successful_message">El Reporte se ha enviado correctamente con todos los datos necesarios. Estará disponible en el archivo para verlo o modificarlo.</string>
+    <string name="not_submitted">Reporte No Enviado</string>
+    <string name="not_submitted_message">El Reporte está terminado pero no fue enviado. ¿Le gustaría enviarlo o descartar estos cambios?</string>
+    <string name="discard">Desechar</string>
+    <string name="incomplete_message">El reporte está incompleto y no se ha enviado. Deséchalo o guárdalo como incompleto. Los reportes incompletos pueden finalizarse o descartarse más tarde, pero no aparecerán en el archivo de reportes.</string>
+    <string name="save_as_incomplete">Guardar como Incompleto</string>
+
+    <!-- Cancel/Save Report Dialog -->
+    <string name="cancel_report_header">¿Cancelar Reporte?</string>
+    <string name="cancel_report">¿Quieres cancelar este reporte y volver a la página de inicio?</string>
+    <string name="no_cancel_report">No - Regresar Al Reporte</string>
+    <string name="yes_cancel_report">Sí - Cancelar Reporte</string>
+
+    <!-- Dispatch Map Page -->
+    <string name="dispatch_map">Mapa de Despacho</string>
+    <string name="dispatch_map_header">Mapa de Despacho</string>
+    <string name="cont">Continuar</string>
+    <string name="cont_desc">Ir a la página siguiente</string>
+    <string name="navigate">Navegar A La Escena</string>
+    <string name="nav_desc">Abrir Google Maps para navegación</string>
+    <string name="canc">Cancelar</string>
+    <string name="canc_desc">Volver a la página anterior</string>
+
+    <!-- Return To Base Page -->
+    <string name="return_to_base_head">Regresar A La Base</string>
+    <string name="return_cancel">Cancelar</string>
+    <string name="return_cancel_desc">Regresar a la página anterior</string>
+    <string name="returned">Haber Regresado</string>
+    <string name="returned_desc">Terminar Reporte</string>
+    <string name="navigate_base">Navigar Al Base</string>
+    <string name="navigate_base_description">Abrir Google Maps para navegación</string>
+    
+    <!-- Finish, Search Report -->
+    <string name="report_id">Identificación de Reporte</string>
+    <string name="from_date">Desde: %s</string>
+    <string name="to_date">Hasta: %s</string>
+    <string name="delete">Borrar</string>
+    <string name="finish">Terminar</string>
+    <string name="amend">Enmendar</string>
+    <string name="no_results">No Hay Resultados</string>
+    <string name="end_of_results">Fin de Resultados</string>
+
+    <!-- Emergency Categories -->
+    <string name="emergency_category_1_code">F</string>
+    <string name="emergency_category_2_code">R</string>
+    <string name="emergency_category_3_code">I</string>
+    <string name="emergency_category_4_code">O</string>
+    <string name="emergency_category_1_name">Incendio</string>
+    <string name="emergency_category_2_name">Rescate</string>
+    <string name="emergency_category_3_name">Accidente</string>
+    <string name="emergency_category_4_name">Otros</string>
+
+    <!-- Emergency Codes - Fires -->
+    <string name="emergency_f_1_code">F-1</string>
+    <string name="emergency_f_2_code">F-2</string>
+    <string name="emergency_f_3_code">F-3</string>
+    <string name="emergency_f_4_code">F-4</string>
+    <string name="emergency_f_5_code">F-5</string>
+    <string name="emergency_f_6_code">F-6</string>
+    <string name="emergency_f_7_code">F-7</string>
+    <string name="emergency_f_8_code">F-8</string>
+    <string name="emergency_f_9_code">F-9</string>
+    <string name="emergency_f_10_code">F-10</string>
+    <string name="emergency_f_1_name">Incendio Residencial (F-1)</string>
+    <string name="emergency_f_2_name">Incendio Comercial (F-2)</string>
+    <string name="emergency_f_3_name">Escape de GLP (F-3)</string>
+    <string name="emergency_f_4_name">Incendio Eléctrico (F-4)</string>
+    <string name="emergency_f_5_name">Incendio de Vehículo de Motor (F-5)</string>
+    <string name="emergency_f_6_name">Incendio Forestal o Vertedero (F-6)</string>
+    <string name="emergency_f_7_name">Materiales Peligrosos (F-7)</string>
+    <string name="emergency_f_8_name">Derrame de Combustible (F-8)</string>
+    <string name="emergency_f_9_name">Incendio de una Embarcación (F-9)</string>
+    <string name="emergency_f_10_name">Incendio de Avión (F-10)</string>
+
+    <!-- Emergency Codes - Rescues -->
+    <string name="emergency_r_1_code">R-1</string>
+    <string name="emergency_r_2_code">R-2</string>
+    <string name="emergency_r_3_code">R-3</string>
+    <string name="emergency_r_4_code">R-4</string>
+    <string name="emergency_r_5_code">R-5</string>
+    <string name="emergency_r_6_code">R-6</string>
+    <string name="emergency_r_1_name">Rescate Acuático (R-1)</string>
+    <string name="emergency_r_2_name">Rescate Terrestre (R-2)</string>
+    <string name="emergency_r_3_name">Rescate en Altura (R-3)</string>
+    <string name="emergency_r_4_name">Rescate de Animales (R-4))</string>
+    <string name="emergency_r_5_name">Rescate Vehícular (R-5)</string>
+    <string name="emergency_r_6_name">Intento de Suicidio (R-6)</string>
+
+    <!-- Emergency Codes - Incidents -->
+    <string name="emergency_i_15_code">I-15</string>
+    <string name="emergency_i_16_code">I-16</string>
+    <string name="emergency_i_17_code">I-17</string>
+    <string name="emergency_i_15_name">Accidente Personal (I-15)</string>
+    <string name="emergency_i_16_name">Accidente de Tránsito (I-16)</string>
+    <string name="emergency_i_17_name">Accidente Aéreo (I-17)</string>
+
+    <!-- Emergency Codes - Other -->
+    <string name="emergency_e_1_code">E-1</string>
+    <string name="emergency_d_2_code">D-2</string>
+    <string name="emergency_i_1_code">I-1</string>
+    <string name="emergency_poda_code">PODA</string>
+    <string name="emergency_e_1_name">Explosión (E-1)</string>
+    <string name="emergency_d_2_name">Derrumbe o Deslizamiento de Tierra (D-2)</string>
+    <string name="emergency_i_1_name">Inundación (i-1)</string>
+    <string name="emergency_poda_name">PODA</string>
+
+    <!-- Truck Codes -->
+    <string name="truck_r_30_code">R-30</string>
+    <string name="truck_r_32_code">R-32</string>
+    <string name="truck_r_36_code">R-36</string>
+    <string name="truck_b_2_code">B-2</string>
+    <string name="truck_b_3_code">B-3</string>
+    <string name="truck_b_4_code">B-4</string>
+    <string name="truck_b_5_code">B-5</string>
+    <string name="truck_b_6_code">B-6</string>
+    <string name="truck_b_7_code">B-7</string>
+    <string name="truck_b_9_code">B-9</string>
+    <string name="truck_b_10_code">B-10</string>
+    <string name="truck_b_11_code">B-11</string>
+    <string name="truck_b_12_code">B-12</string>
+    <string name="truck_b_16_code">B-16</string>
+    <string name="truck_b_15_code">B-15</string>
+    <string name="truck_b_18_code">B-18</string>
+    <string name="truck_b_19_code">B-19</string>
+    <string name="truck_b_20_code">B-20</string>
+    <string name="truck_b_21_code">B-21</string>
+    <string name="truck_b_22_code">B-22</string>
+    <string name="truck_b_31_code">B-31</string>
+    <string name="truck_c_9_code">C-9</string>
+    <string name="truck_c_10_code">C-10</string>
+    <string name="truck_c_12_code">C-12</string>
+    <string name="truck_c_21_code">C-21</string>
+    <string name="truck_c_22_code">C-22</string>
+    <string name="truck_c_23_code">C-23</string>
+    <string name="truck_c_24_code">C-24</string>
+    <string name="truck_e_26_code">E-26</string>
+    <string name="truck_e_27_code">E-27</string>
+    <string name="truck_e_28_code">E-28</string>
+
+    <!-- Victim Codes -->
+    <string name="victim_i_26_code">I-26</string>
+    <string name="victim_i_27_code">I-27</string>
+    <string name="victim_i_28_code">I-28</string>
+    <string name="victim_i_28_adv_code">I-28 AVANZADO</string>
+    <string name="victim_i_29_code">I-29</string>
+    <string name="victim_i_26_name">Persona sin daño físico (I-26)</string>
+    <string name="victim_i_27_name">Persona afectada ligeramente (I-27)</string>
+    <string name="victim_i_28_name">Persona con heridas serias (I-28)</string>
+    <string name="victim_i_28_adv_name">Persona en estado crítico (I-28 AVANZADO)</string>
+    <string name="victim_i_29_name">Persona Fallecida (I-29)</string>
+</resources>
